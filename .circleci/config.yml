@@ -1,4 +1,3 @@
-# .circleci/config.yml
 version: 2.1
 
 jobs:
@@ -8,14 +7,19 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: npm install
+          name: Print Environment Variables
+          command: printenv
       - run:
-          name: Run tests
-          command: npx mocha
+          name: Show Git Status
+          command: git status
+      - run:
+          name: Your build steps
+          command: |
+            # Add your build commands here
 
 workflows:
   version: 2
-  build:
+  build_and_test:
     jobs:
       - build
+
